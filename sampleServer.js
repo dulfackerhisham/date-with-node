@@ -7,9 +7,11 @@ const server = http.createServer((req, res) => {
     //     firstName: "John",
     //     lastName: "Doe",
     // }
+    const name = "hisham"
 
     res.writeHead(200, {'Content-Type': 'text/html'});
-    const html = fs.readFileSync("./sample.html", "utf-8");
+    let html = fs.readFileSync("./sample.html", "utf-8");
+    html = html.replace("{{name}}", name)
     res.end(html);
 });
 
