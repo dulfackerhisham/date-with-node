@@ -1,6 +1,8 @@
 const express=require('express');
 const app = express();
 
+app.set("view engine", "ejs");
+
 app.use((req, res, next) => {
     console.log("middleware test");
     next();
@@ -11,7 +13,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/test", (req, res) => {
-    res.send("<h1>whatsapp</h1>")
+    res.render("index", {date: 2024})
 });
 
 app.get("/profile/:username", (req, res) => {
